@@ -5,7 +5,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ContentComponent } from "./content/content.component";
 import { HttpClientModule } from "@angular/common/http";
-import { NgxSpinnerModule } from "ngx-spinner";
 import { TransferHttpCacheModule } from "@nguniversal/common";
 
 @NgModule({
@@ -15,7 +14,6 @@ import { TransferHttpCacheModule } from "@nguniversal/common";
     AppRoutingModule,
     TransferHttpCacheModule,
     HttpClientModule,
-    NgxSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

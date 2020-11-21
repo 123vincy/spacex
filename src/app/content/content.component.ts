@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { NgxSpinnerService } from "ngx-spinner";
 import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
@@ -35,10 +34,10 @@ export class ContentComponent implements OnInit {
   active_landing = "";
 
   missionData = [];
+  opacity = 1;
 
   constructor(
     private http: HttpClient,
-    private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -46,7 +45,7 @@ export class ContentComponent implements OnInit {
   ngOnInit(): void {
     // checking the query params
     this.route.queryParams.subscribe((params) => {
-      this.spinner.show();
+      this.opacity = 0.2;
       this.getData(params);
 
       if (params.hasOwnProperty("launch_year")) {
@@ -83,7 +82,7 @@ export class ContentComponent implements OnInit {
         this.formatData(data);
       },
       (error) => {
-        this.spinner.hide();
+        this.opacity = 1;
       }
     );
   }
@@ -112,7 +111,6 @@ export class ContentComponent implements OnInit {
   // formatting the recieved data to store only the info needed
   formatData(data) {
     this.missionData = [];
-    this.spinner.hide();
     data.forEach((value) => {
       this.missionData.push({
         image: value.links.mission_patch,
@@ -130,5 +128,7 @@ export class ContentComponent implements OnInit {
             : "No",
       });
     });
+
+    this.opacity = 1;
   }
 }
