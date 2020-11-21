@@ -1,0 +1,91 @@
+<div class='container'>
+  <div class='title'>
+    SpaceX Launch Programs
+  </div>
+  <div class="innerContainer">
+
+    <div class='filters'>
+      <div class="title">
+        Filters
+      </div>
+      <div class="filterContainer">
+        <div class="filterContainerTitle">
+          Launch Year
+          <hr>
+        </div>
+        <div class="filterContainerValuesContainer">
+
+          <div class="filterContainerValuesWrapper" (click)="active_year = active_year == year ? '' : year;setRoute();"
+            *ngFor="let year of launch_years">
+            <div class="value" [class.selected]="active_year == year">{{year}} </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="filterContainer">
+        <div class="filterContainerTitle">
+          Successful Launch
+          <hr>
+        </div>
+        <div class="filterContainerValuesContainer">
+
+          <div class="filterContainerValuesWrapper"
+            (click)="active_launch = active_launch == type ? '' : type;setRoute()" *ngFor="let type of success_launch">
+            <div class="value" [class.selected]="active_launch == type">{{type}} </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="filterContainer">
+        <div class="filterContainerTitle">
+          Successful Landing
+          <hr>
+        </div>
+        <div class="filterContainerValuesContainer">
+
+          <div class="filterContainerValuesWrapper"
+            (click)="active_landing = active_landing == type ? '' : type;setRoute()"
+            *ngFor="let type of success_landing">
+            <div class="value" [class.selected]="active_landing == type">{{type}} </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <ngx-spinner bdColor="rgba(51,51,51,0.2)" [fullScreen]="false" type="ball-atom" size="medium">
+      </ngx-spinner>
+
+      <div class="child" *ngFor="let mis of missionData">
+        <div class="innerChild">
+          <div class="imageContainer">
+            <img [src]="mis.image" alt="Mission Logo"> </div>
+          <div class="missionName">
+            {{mis.mission_name}} #{{mis.flight_number}}
+          </div>
+          <div class="missionIds">
+            <div class="innertitles">Mission ID's:</div>
+            <ul *ngFor="let id of mis.mission_id" style="margin: 5px 0;">
+              <li>{{id}}</li>
+            </ul>
+          </div>
+          <div class="launchYear">
+            <span class="innertitles">Launch Year:</span><span class="innervalues">{{mis.launch_year}}</span>
+          </div>
+          <div class="launchStatus">
+            <span class="innertitles">Launch Success:</span><span class="innervalues"> {{mis.launch_success}}</span>
+          </div>
+          <div class="land_success">
+            <span class="innertitles">Landing Success:</span><span class="innervalues"> {{mis.land_success}}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="footer">
+    <span style="font-weight: bold;">Developed By:</span>
+    <span> Vinoth</span>
+  </div>
+</div>
