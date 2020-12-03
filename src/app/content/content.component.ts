@@ -119,13 +119,9 @@ export class ContentComponent implements OnInit {
         mission_id: value.mission_id,
         launch_year: value.launch_year,
         launch_success:
-          value.hasOwnProperty("launch_success") && value.launch_success
-            ? "Yes"
-            : "No",
+          value['launch_success'],
         land_success:
-          value.hasOwnProperty("launch_landing") && value.land_success
-            ? "Yes"
-            : "No",
+           value['launch_landing'],
       });
     });
 

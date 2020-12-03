@@ -32,8 +32,8 @@ $white: white;
       width: 20%;
       background: $white;
       padding: 5px;
-      margin-bottom: 20px;
-      height: 100%;
+      margin-bottom: 10px;
+      height: fit-content;
 
       .title {
         font-weight: bold;
@@ -41,10 +41,13 @@ $white: white;
       }
 
       .filterContainer {
+
+        text-align: center;
+
         .filterContainerTitle {
           font-size: 0.8rem;
-          text-align: center;
           padding: 0 20px;
+          display: inline-block;
         }
 
         .filterContainerValuesContainer {
