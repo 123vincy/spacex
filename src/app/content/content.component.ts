@@ -121,7 +121,7 @@ export class ContentComponent implements OnInit {
         launch_success:
           value['launch_success'],
         land_success:
-           value['land_success'],
+           value['rocket']['first_stage']['cores'][0]['land_success'],
       });
     });
 
